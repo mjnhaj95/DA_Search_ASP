@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="DA_Search.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>HỆ THỐNG QUẢN LÝ THÔNG TIN</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Bootstrap Core CSS -->
+    <link href="BS_Admin2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="BS_Admin2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="BS_Admin2/dist/css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="BS_Admin2/vendor/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="BS_Admin2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="home.aspx">HỆ THỐNG QUẢN LÝ THÔNG TIN</a>
+                </div>
+                <!-- /.navbar-header -->
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <i class=" fa fa-3x fa-user"></i>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <br />
+                                    Chào:
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="row">
+                                    &nbsp;
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
+                                    <i class="fa fa-user"></i>&nbsp;
+                                    <i class="fa fa-cog"></i>&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav" id="side-menu">
+                            <%-- <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>--%>
+                            <li>
+                                <strong>Danh mục chức năng</strong>
+                            </li>
+                            <li>
+                                <a href="home.aspx"><i class="fa fa-home"></i><span>Trang chủ</span></a>
+                            </li>
+                            <li>
+                                <a href="frmHoSoSinhVien.aspx"><i class="fa fa-users"></i><span>Hồ sơ sinh viên</span></a>
+                            </li>
+                            <li>
+                                <a href="frmHoSoGiangVien.aspx"><i class="fa fa-user-times"></i><span>Hồ sơ giảng viên</span></a>
+                            </li>
+                            <li>
+                                <a href="frmHoSoDoAn.aspx"><i class="fa fa-bullseye"></i><span>Hồ sơ đồ án</span></a>
+                            </li>
+                            <li>
+                                <a href="frmQuanLyTaiKhoan"><i class="fa fa-diamond"></i><span>Quản lý tài khoản</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i>Quản lý danh mục<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="frmKhoaHoc_view.aspx">Danh mục khóa học</a>
+                                    </li>
+                                    <li>
+                                        <a href="frmChuyenNganh_view.aspx">Danh mục chuyên ngành</a>
+                                    </li>
+                                    <li>
+                                        <a href="frmLinhVuc_view.aspx">Danh mục lĩnh vực</a>
+                                    </li>
+                                    <li>
+                                        <a href="Test.aspx">Test</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+            <div id="page-wrapper">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+    </form>
+    <!-- jQuery -->
+    <script src="../BS_Admin2/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../BS_Admin2/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../BS_Admin2/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../BS_Admin2/vendor/raphael/raphael.min.js"></script>
+    <script src="../BS_Admin2/vendor/morrisjs/morris.min.js"></script>
+    <script src="../BS_Admin2/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../BS_Admin2/dist/js/sb-admin-2.js"></script>
+
+    <link href="../AllCss/style.css" rel="stylesheet" />
+</body>
+</html>
