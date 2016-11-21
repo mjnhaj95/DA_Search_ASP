@@ -1,10 +1,32 @@
-﻿.mau_thead{
+﻿.mau_thead {
     background-color: #27ae60;
     color: #ffffff;
     font-size: 14px;
 }
-.tieude_thead{
+
+.tieude_thead {
     font-weight: bold;
     font-size: 16px;
     color: #000000;
+}
+
+.chu {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.khung {
+    height: 34px;
+    width: 500px;
+}
+
+td {
+    height: 50px;
+}
+
+.error {
+    color: red;
+    font-family: Arial;
+    font-size: 13px;
 }

@@ -11,7 +11,7 @@ namespace DA_Search.Form
 {
 
 
-    public partial class frmHoSoGiangVien
+    public partial class frmChuyenNganhChiTiet
     {
     }
 }

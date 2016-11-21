@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DA_Search.Form
 {
-    public partial class frmHoSoGiangVien : System.Web.UI.Page
+    public partial class frmChuyenNganhChiTiet : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

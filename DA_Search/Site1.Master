@@ -82,7 +82,7 @@
                                 <a href="frmHoSoSinhVien.aspx"><i class="fa fa-users"></i><span>Hồ sơ sinh viên</span></a>
                             </li>
                             <li>
-                                <a href="frmHoSoGiangVien.aspx"><i class="fa fa-user-times"></i><span>Hồ sơ giảng viên</span></a>
+                                <a href="frmGiangVienView.aspx"><i class="fa fa-user-times"></i><span>Hồ sơ giảng viên</span></a>
                             </li>
                             <li>
                                 <a href="frmHoSoDoAn.aspx"><i class="fa fa-bullseye"></i><span>Hồ sơ đồ án</span></a>
@@ -104,6 +104,9 @@
                                     </li>
                                     <li>
                                         <a href="Test.aspx">Test</a>
+                                    </li>
+                                    <li>
+                                        <a href="frmGiangVienView.aspx">Hồ sơ dữ liệu giảng viên</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

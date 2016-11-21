@@ -95,10 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AllCss\style.css" />
+    <Content Include="Form\frmChuyenNganhChiTiet.aspx" />
     <Content Include="Form\frmChuyenNganh_view.aspx" />
     <Content Include="Form\frmGiangVienAdd.aspx" />
+    <Content Include="Form\frmGiangVienChiTiet.aspx" />
+    <Content Include="Form\frmGiangVienView.aspx" />
     <Content Include="Form\frmHoSoDoAn.aspx" />
-    <Content Include="Form\frmHoSoGiangVien.aspx" />
     <Content Include="Form\frmHoSoSinhVien.aspx" />
     <Content Include="Form\frmKhoaHoc_view.aspx" />
     <Content Include="Form\frmLinhVuc_view.aspx" />
@@ -279,6 +281,13 @@
     <Compile Include="Form\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\frmChuyenNganhChiTiet.aspx.cs">
+      <DependentUpon>frmChuyenNganhChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmChuyenNganhChiTiet.aspx.designer.cs">
+      <DependentUpon>frmChuyenNganhChiTiet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\frmChuyenNganh_view.aspx.cs">
       <DependentUpon>frmChuyenNganh_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -293,19 +302,26 @@
     <Compile Include="Form\frmGiangVienAdd.aspx.designer.cs">
       <DependentUpon>frmGiangVienAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\frmGiangVienChiTiet.aspx.cs">
+      <DependentUpon>frmGiangVienChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmGiangVienChiTiet.aspx.designer.cs">
+      <DependentUpon>frmGiangVienChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmGiangVienView.aspx.cs">
+      <DependentUpon>frmGiangVienView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmGiangVienView.aspx.designer.cs">
+      <DependentUpon>frmGiangVienView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\frmHoSoDoAn.aspx.cs">
       <DependentUpon>frmHoSoDoAn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Form\frmHoSoDoAn.aspx.designer.cs">
       <DependentUpon>frmHoSoDoAn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Form\frmHoSoGiangVien.aspx.cs">
-      <DependentUpon>frmHoSoGiangVien.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Form\frmHoSoGiangVien.aspx.designer.cs">
-      <DependentUpon>frmHoSoGiangVien.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\frmHoSoSinhVien.aspx.cs">
       <DependentUpon>frmHoSoSinhVien.aspx</DependentUpon>
