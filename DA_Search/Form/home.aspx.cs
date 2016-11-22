@@ -160,7 +160,7 @@ namespace DA_Search.Form
             try
             {
                 clscon.connect_Data();
-                string st_sql_sv_cn = "SELECT tencn as 'cn',COUNT(masv) as 'sv' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON chuyennganh = macn GROUP BY tencn, macn"; // câu lệnh truy vấn thống kê sinh viên
+                string st_sql_sv_cn = "SELECT tencn as 'cn',COUNT(masv) as 'sv', Macn FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON chuyennganh = macn GROUP BY tencn, macn"; // câu lệnh truy vấn thống kê sinh viên
                 SqlCommand sqlcm_sv_cn = new SqlCommand(st_sql_sv_cn, clscon.con);
                 SqlDataReader re_cn = sqlcm_sv_cn.ExecuteReader();  //Trả về đối tượng SqlDataReader -
                                                                     // thường dùng cho việc đọc kết quả trả về của câu lệnh
@@ -170,7 +170,8 @@ namespace DA_Search.Form
                 while (re_cn.Read())
                 {
                     i++;
-                    st_kq_cn = st_kq_cn + "<tr> <td>" + i.ToString() + "</td> <td>" + re_cn.GetValue(0).ToString() + "</td> <td>" + re_cn.GetValue(1).ToString() + "</td></tr>";
+                    st_kq_cn = st_kq_cn + "<tr> <td>" + i.ToString() + "</td> <td>" + re_cn.GetValue(0).ToString() + "</td> <td>" + re_cn.GetValue(1).ToString() + "</td>";
+                    st_kq_cn = st_kq_cn + "<td><a href='frmChuyenNganhChiTiet.aspx?macn=" + re_cn.GetValue(2).ToString() + "'>Danh sách</a></td></td>";
                 }
                 re_cn.Close();
                 ltr_sv_cn.Text = st_kq_cn;

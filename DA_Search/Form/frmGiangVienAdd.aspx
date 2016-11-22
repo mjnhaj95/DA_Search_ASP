@@ -2,15 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-    .auto-style1 {
+        .auto-style1 {
             width: 794px;
         }
-</style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading success">
                 <span class="tieude_thead">Thêm mới giảng viên</span>
             </div>
             <div class="panel-body">

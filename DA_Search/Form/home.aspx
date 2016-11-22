@@ -113,7 +113,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <span class="tieude_thead"> Thống kê sinh viên theo chuyên ngành</span>   
+                <span class="tieude_thead">Thống kê sinh viên theo chuyên ngành</span>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover" id="dataTables-example">
@@ -122,6 +122,7 @@
                             <th>STT</th>
                             <th>Chuyên ngành</th>
                             <th>Số sinh viên</th>
+                            <th>Danh sách</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -139,7 +140,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-               <span class="tieude_thead">Thống kê sinh viên theo lĩnh vực</span>
+                <span class="tieude_thead">Thống kê sinh viên theo lĩnh vực</span>
             </div>
             <div class="panel-body">
                 <table class="table table-striped table-bordered table-hover">

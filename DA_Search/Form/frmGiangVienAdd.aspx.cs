@@ -11,7 +11,6 @@ namespace DA_Search.Form
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
