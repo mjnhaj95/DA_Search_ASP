@@ -51,7 +51,7 @@
                             <asp:Label ID="Label7" runat="server" Text="Giới tính:" CssClass="chu"></asp:Label>
                         </td>
                         <td class="auto-style1">
-                            <asp:RadioButton ID="rdNam" runat="server" GroupName="sex" Text="Nam" />
+                            <asp:RadioButton ID="rdNam" runat="server" GroupName="sex" Text="Nam" Checked="True" />
                             <asp:RadioButton ID="rdNu" runat="server" GroupName="sex" Text="Nữ" />
                         </td>
                     </tr>
@@ -60,7 +60,7 @@
                             <asp:Label ID="Label8" runat="server" Text="Học vị:" CssClass="chu"></asp:Label>
                         </td>
                         <td class="auto-style1">
-                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:DropDownList ID="ddlHocVi" runat="server">
                                 <asp:ListItem>Sinh viên</asp:ListItem>
                                 <asp:ListItem>Kỹ sư</asp:ListItem>
                                 <asp:ListItem Selected="True">Thạc sĩ</asp:ListItem>
@@ -98,8 +98,9 @@
                     <tr>
                         <td></td>
                         <td class="auto-style1">
-                            <asp:Button ID="btnThem" runat="server" Text="Cập nhật" />
+                            <asp:Button ID="btnThem" runat="server" Text="Cập nhật" OnClick="btnThem_Click" />
                             <asp:Button ID="btnHuy" runat="server" Text="Hủy bỏ" />
+                            <asp:Label ID="lbl_tb" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                 </table>

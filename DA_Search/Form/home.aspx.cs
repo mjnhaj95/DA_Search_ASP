@@ -154,6 +154,9 @@ namespace DA_Search.Form
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
         //  Thống kế sinh viên theo chuyên ngành
         public void Data_sv_cn()
         {
@@ -171,7 +174,7 @@ namespace DA_Search.Form
                 {
                     i++;
                     st_kq_cn = st_kq_cn + "<tr> <td>" + i.ToString() + "</td> <td>" + re_cn.GetValue(0).ToString() + "</td> <td>" + re_cn.GetValue(1).ToString() + "</td>";
-                    st_kq_cn = st_kq_cn + "<td><a href='frmChuyenNganhChiTiet.aspx?macn=" + re_cn.GetValue(2).ToString() + "'>Danh sách</a></td></td>";
+                    st_kq_cn = st_kq_cn + "<td><a href='frmChuyenNganhChiTiet.aspx?macn=" + re_cn.GetValue(2).ToString() + "'><i class='fa fa-search'></i>Danh sách</a></td></tr>";
                 }
                 re_cn.Close();
                 ltr_sv_cn.Text = st_kq_cn;
@@ -184,13 +187,16 @@ namespace DA_Search.Form
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
         //  Thống kế sinh viên theo lĩnh vực
         public void Data_v_lv()
         {
             try
             {
                 clscon.connect_Data();
-                string st_sql_sv_lv = "SELECT tbl_linhvuc.Tenlv AS 'Lĩnh vực', COUNT(tbl_doan.Masv)AS 'Số sinh viên' FROM tbl_doan INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc GROUP BY tbl_linhvuc.Tenlv, tbl_doan.Linhvuc";
+                string st_sql_sv_lv = "SELECT tbl_linhvuc.Tenlv AS 'Lĩnh vực', COUNT(tbl_doan.Masv)AS 'Số sinh viên', LinhVuc FROM tbl_doan INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc GROUP BY tbl_linhvuc.Tenlv, tbl_doan.Linhvuc";
                 SqlCommand sqlcm_sv_lv = new SqlCommand(st_sql_sv_lv, clscon.con);
                 SqlDataReader re_lv = sqlcm_sv_lv.ExecuteReader();
                 string st_kq_lv = "";
@@ -198,7 +204,8 @@ namespace DA_Search.Form
                 while (re_lv.Read())
                 {
                     j++;
-                    st_kq_lv = st_kq_lv + "<tr> <td>" + j.ToString() + "</td> <td> " + re_lv.GetValue(0).ToString() + " </td> <td>" + re_lv.GetValue(1).ToString() + "</td></tr>";
+                    st_kq_lv = st_kq_lv + "<tr> <td>" + j.ToString() + "</td> <td> " + re_lv.GetValue(0).ToString() + " </td> <td>" + re_lv.GetValue(1).ToString() + "</td>";
+                    st_kq_lv = st_kq_lv + "<td><a href='frmLinhVucChiTiet.aspx?malv=" + re_lv.GetValue(2).ToString() + "'><i class='fa fa-search'></i>Danh sách</a></td></tr>";
                 }
                 re_lv.Close();
                 ltr_sv_lv.Text = st_kq_lv;

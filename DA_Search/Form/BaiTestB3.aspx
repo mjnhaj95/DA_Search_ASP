@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="frmGiangVienView.aspx.cs" Inherits="DA_Search.Form.frmGiangVienView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="BaiTestB3.aspx.cs" Inherits="DA_Search.Form.BaiTestB3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,28 +6,30 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <span class="tieude_thead">DANH SÁCH GIẢNG VIÊN TRONG CSDL</span>
+                <span class="tieude_thead">HỒ SƠ SINH VIÊN TRONG CSDL</span>
                 <br />
-                <div class="btn btn-success"><a href="frmGiangVienAdd.aspx">Thêm mới</a></div>
+                <div class="btn btn-success"><a href="#">Thêm mới</a></div>
                 <br />
                 <br />
-                <asp:TextBox ID="TextBox1" runat="server" Height="28px" Width="265px"></asp:TextBox>&nbsp; <asp:Button ID="Button1" runat="server" Text="Tìm kiếm" CssClass="btn-info active" Height="34px" OnClick="Button1_Click" Width="105px" />
+                <asp:TextBox ID="txtTimKiem" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Tìm kiếm" OnClick="Button1_Click" />
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover" id="dataTables-example">
                     <thead>
                         <tr class="mau_thead">
-                            <th>Mã giảng viên</th>
-                            <th>Tên giảng viên</th>
-                            <th>Điện thoại </th>
-                            <th>Địa chỉ</th>
+                            <th>STT</th>
+                            <th>Mã sinh viên</th>
+                            <th>Tên sinh viên</th>
+                            <th>Giới tính</th>
+                            <th>Khóa</th>
+                            <th>Chuyên ngành</th>
                             <th>Chi tiết</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <asp:Literal ID="ltr_sv_gv" runat="server" Mode="Transform"></asp:Literal>
+                        <asp:Literal ID="ltr_sv" runat="server" Mode="Transform"></asp:Literal>
 
                         <%--  Sử dụng control để hiện mã chuyển đổi HTML--%>
                     </tbody>

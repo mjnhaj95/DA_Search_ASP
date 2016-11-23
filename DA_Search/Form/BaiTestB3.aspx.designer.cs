@@ -10,16 +10,16 @@
 namespace DA_Search.Form {
     
     
-    public partial class frmGiangVienView {
+    public partial class BaiTestB3 {
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtTimKiem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtTimKiem;
         
         /// <summary>
         /// Button1 control.
@@ -31,12 +31,12 @@ namespace DA_Search.Form {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// ltr_sv_gv control.
+        /// ltr_sv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltr_sv_gv;
+        protected global::System.Web.UI.WebControls.Literal ltr_sv;
     }
 }

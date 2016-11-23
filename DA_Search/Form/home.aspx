@@ -149,6 +149,7 @@
                             <th>STT</th>
                             <th>Lĩnh vực </th>
                             <th>Số đồ án</th>
+                            <th>Chi tiết</th>
                         </tr>
                     </thead>
                     <tbody>

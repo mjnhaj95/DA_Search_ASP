@@ -35,7 +35,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="home.aspx">HỆ THỐNG QUẢN LÝ THÔNG TIN</a>
+                    <a class="navbar-brand" href="home.aspx"><b>HỆ THỐNG QUẢN LÝ THÔNG TIN</b></a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -73,7 +73,9 @@
                                 <!-- /input-group -->
                             </li>--%>
                             <li>
-                                <strong>Danh mục chức năng</strong>
+                                <strong>
+                                    <h4>Danh mục chức năng</h4>
+                                </strong>
                             </li>
                             <li>
                                 <a href="home.aspx"><i class="fa fa-home"></i><span>Trang chủ</span></a>
@@ -107,6 +109,9 @@
                                     </li>
                                     <li>
                                         <a href="frmGiangVienView.aspx">Hồ sơ dữ liệu giảng viên</a>
+                                    </li>
+                                    <li>
+                                        <a href="BaiTestB3.aspx">Bài test B3</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

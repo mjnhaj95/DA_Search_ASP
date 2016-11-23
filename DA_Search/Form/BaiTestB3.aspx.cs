@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace DA_Search.Form
 {
-    public partial class frmHoSoSinhVien : System.Web.UI.Page
+    public partial class BaiTestB3 : System.Web.UI.Page
     {
         private clsconnect clscon = new clsconnect();
 
@@ -20,7 +20,7 @@ namespace DA_Search.Form
                 try
                 {
                     clscon.connect_Data();
-                    string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Namsinh AS 'Ngày sinh',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành', Email AS 'Email', Dienthoai AS 'Điện thoại',Diachi AS 'Địa chỉ' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn ORDER BY Masv";
+                    string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn ORDER BY Masv";
 
                     SqlCommand sqlcm_sinhvien = new SqlCommand(st_sql_sinhvien, clscon.con);
 
@@ -28,21 +28,21 @@ namespace DA_Search.Form
                                                                            // thường dùng cho việc đọc kết quả trả về của câu lệnh
                                                                            //SQL là 1 tập hợp gồm nhiều hàng, nhiều cột
                     string st_kq_gv = "";
-                    //byte i = 0;
+                    byte i = 0;
                     while (re_gv.Read())
                     {
-                        st_kq_gv = st_kq_gv + "<tr> <td>" + re_gv.GetValue(0) + "</td>";
+                        i++;
+                        st_kq_gv = st_kq_gv + "<tr> <td>" + i.ToString() + "</td>  <td>" + re_gv.GetValue(0) + "</td>";
                         st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(1) + "</td>";
                         st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(2) + "</td>";
                         st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(3) + "</td>";
                         st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(4) + "</td>";
-                        st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(5) + "</td>";
-                        st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(6) + "</td>";
-                        st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(7) + "</td>";
-                        st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(8) + "</td> </tr>";
+                        st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienChiTiet.aspx?id=" + re_gv.GetValue(0).ToString() + "'>Xem chi tiết</a></td>";
+                        st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
+                        st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td></tr>";
                     }
                     re_gv.Close();
-                    ltr_sv_sv.Text = st_kq_gv;
+                    ltr_sv.Text = st_kq_gv;
                 }
                 catch (Exception ex)
                 {
@@ -55,15 +55,13 @@ namespace DA_Search.Form
             }
         }
 
-        protected void btnTimKiem_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             try
             {
-                string search = txtInput.Text.Trim();
-                string khoa = ddlKhoa.Text.Trim();
-                string chuyennganh = ddlChuyenNganh.Text.Trim();
+                string search = txtTimKiem.Text.Trim();
                 clscon.connect_Data();
-                string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Namsinh AS 'Ngày sinh',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành', Email AS 'Email', Dienthoai AS 'Điện thoại',Diachi AS 'Địa chỉ' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn  Where (Masv LIKE N'%" + search + "%' OR Tensv LIKE N'%" + search + "%') AND tbl_sinhvien.Khoa = " + khoa + " AND tbl_chuyennganh.Tencn = N'" + chuyennganh + "' ORDER BY Masv";
+                string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn where Masv like N'%" + search + "%' or Tensv like N'%" + search + "%' ORDER BY Masv";
 
                 SqlCommand sqlcm_sinhvien = new SqlCommand(st_sql_sinhvien, clscon.con);
 
@@ -71,21 +69,21 @@ namespace DA_Search.Form
                                                                        // thường dùng cho việc đọc kết quả trả về của câu lệnh
                                                                        //SQL là 1 tập hợp gồm nhiều hàng, nhiều cột
                 string st_kq_gv = "";
-                //byte i = 0;
+                byte i = 0;
                 while (re_gv.Read())
                 {
-                    st_kq_gv = st_kq_gv + "<tr> <td>" + re_gv.GetValue(0) + "</td>";
+                    i++;
+                    st_kq_gv = st_kq_gv + "<tr> <td>" + i.ToString() + "</td>  <td>" + re_gv.GetValue(0) + "</td>";
                     st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(1) + "</td>";
                     st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(2) + "</td>";
                     st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(3) + "</td>";
                     st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(4) + "</td>";
-                    st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(5) + "</td>";
-                    st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(6) + "</td>";
-                    st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(7) + "</td>";
-                    st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(8) + "</td> </tr>";
+                    st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienChiTiet.aspx?id=" + re_gv.GetValue(0).ToString() + "'>Xem chi tiết</a></td>";
+                    st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
+                    st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td></tr>";
                 }
                 re_gv.Close();
-                ltr_sv_sv.Text = st_kq_gv;
+                ltr_sv.Text = st_kq_gv;
             }
             catch (Exception ex)
             {
