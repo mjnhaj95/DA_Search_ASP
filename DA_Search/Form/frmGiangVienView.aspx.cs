@@ -37,7 +37,7 @@ namespace DA_Search.Form
                         st_kq_gv = st_kq_gv + "<td><a href='frmGiangVienChiTiet.aspx?id=" + re_gv.GetValue(0).ToString() + "'>Xem chi tiết</a></td>";
                         //st_kq_gv = st_kq_gv + "<td><div class='btn btn-sm btn-primary'><a  href='frmGiangVienAdd.aspx'><i class='fa fa-pencil'></i></a></div></td>";
                         st_kq_gv = st_kq_gv + "<td><a href='frmGiangVienEdit.aspx?id=" + re_gv.GetValue(0).ToString() + "'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
-                        st_kq_gv = st_kq_gv + "<td><a href='frmGiangVienDelete.aspx?id=" + re_gv.GetValue(0).ToString() + "'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td> </tr>";
+                        st_kq_gv = st_kq_gv + "<td><a href='frmGiangVienDelete.aspx?id=" + re_gv.GetValue(0).ToString() + "'><asp:Button ID='Button1' runat='server' OnClick='return deleteConfirm()' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td> </tr>";
                     }
 
                     re_gv.Close();

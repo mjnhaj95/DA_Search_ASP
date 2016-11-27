@@ -57,8 +57,9 @@ namespace DA_Search.Form
             int check = sqlcm.ExecuteNonQuery();
             if (check != 0)
             {
-                lbl_tb.Text = "Thêm mới dữ liệu thành công!";
+                lbl_tb.Text = "AddAlert()";
                 lbl_tb.Visible = true;
+                Response.Redirect("frmGiangVienView.aspx");
             }
             else
             {

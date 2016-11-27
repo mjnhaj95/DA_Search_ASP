@@ -4,5 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <asp:Label ID="lbl_tb" runat="server" Text="" CssClass="danger"></asp:Label>
+    <br />
     <a href="frmGiangVienView.aspx">Quay về  trang danh sách giảng viên</a>
 </asp:Content>

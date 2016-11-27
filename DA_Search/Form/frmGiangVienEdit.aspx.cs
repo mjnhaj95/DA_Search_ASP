@@ -91,8 +91,10 @@ namespace DA_Search.Form
             int check = sqlcm.ExecuteNonQuery();
             if (check != 0)
             {
-                lbl_tb.Text = "Sửa dữ liệu thành công!";
-                lbl_tb.Visible = true;
+                //lbl_tb.Text = "Sửa dữ liệu thành công!";
+                //lbl_tb.Visible = true;
+                Response.Write("<script>alert('Sửa dữ liệu thành công')</script>");
+                Response.Redirect("frmGiangVienView.aspx");
             }
             else
             {

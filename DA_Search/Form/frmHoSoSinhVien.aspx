@@ -17,7 +17,8 @@
                 <asp:TextBox ID="txtInput" runat="server" Height="30px" Width="200px"></asp:TextBox>
             </div>
             <div class="col-lg-3">
-                <asp:Button ID="btnTimKiem" runat="server" Text="Tìm kiếm" CssClass="btn-info active" Height="30px" Width="121px" OnClick="btnTimKiem_Click" />
+                   <button class="btn btn-success" onclick="Alert()">Tìm kiếm</button>
+               <%-- <asp:Button ID="btnTimKiem" runat="server" Text="Tìm kiếm" CssClass="btn-info active" Height="30px" Width="121px" OnClick="btnTimKiem_Click" />--%>
             </div>
             <div class="col-lg-3">
                 <asp:DropDownList ID="ddlKhoa" runat="server" Height="30px" DataSourceID="SqlDataSource3" DataTextField="Tên chuyên ngành" DataValueField="Tên chuyên ngành"></asp:DropDownList>
@@ -52,5 +53,10 @@
                 <%--  Sử dụng control để hiện mã chuyển đổi HTML--%>
             </tbody>
         </table>
+         <script type="text/javascript">
+            function Alert() {
+                alert("Chưa làm");
+            }
+        </script>
     </div>
 </asp:Content>

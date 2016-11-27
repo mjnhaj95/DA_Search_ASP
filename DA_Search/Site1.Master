@@ -18,7 +18,7 @@
 
     <!-- Morris Charts CSS -->
     <link href="BS_Admin2/vendor/morrisjs/morris.css" rel="stylesheet" />
-
+    <link href="BS_Admin2/libs/toastr/toastr.css" rel="stylesheet" />
     <!-- Custom Fonts -->
     <link href="BS_Admin2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 </head>
@@ -130,6 +130,9 @@
         </div>
         <!-- /#wrapper -->
     </form>
+    <script src="../BS_Admin2/libs/angular/angular.js"></script>
+    <script src="../BS_Admin2/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../BS_Admin2/libs/toastr/toastr.js"></script>
     <!-- jQuery -->
     <script src="../BS_Admin2/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -145,7 +148,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../BS_Admin2/dist/js/sb-admin-2.js"></script>
-
+    <script src="../Form/shared/notificationServicejs.js"></script>
     <link href="../AllCss/style.css" rel="stylesheet" />
 </body>
 </html>
