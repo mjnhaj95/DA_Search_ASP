@@ -23,7 +23,7 @@ namespace DA_Search.Form
                     clscon.connect_Data();
                     string st_ma = Request.QueryString.Get("id").ToString();
 
-                    string st_sql = "SELECT Magv, Tengv, Namsinh, Case WHEN tbl_giangvien.Gioitinh = 1 THEN 'Nữ' ELSE N'Nam' END AS 'Giới tính',Hocvi, Email, Dienthoai, Diachi   FROM tbl_giangvien WHERE Magv = '" + st_ma + "'";
+                    string st_sql = "SELECT Magv, Tengv, Namsinh, Case WHEN tbl_giangvien.Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính',Hocvi, Email, Dienthoai, Diachi   FROM tbl_giangvien WHERE Magv = '" + st_ma + "'";
 
                     SqlCommand sqlcm = new SqlCommand();
                     sqlcm.CommandText = st_sql;

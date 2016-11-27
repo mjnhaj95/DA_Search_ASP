@@ -172,21 +172,25 @@
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     Điểm đồ án <= 7 :<asp:Label ID="lblDoAn7" runat="server" Text="Label"></asp:Label>
                     đồ án
+                    <a href="frmDanhSachDoAn7.aspx" class="pull-right"><i class="fa fa-search"></i>Danh sách</a>
                 </div>
                 <div class="alert alert-info alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     Điểm đồ án từ 7.1 đến 8.0 :<asp:Label ID="lblDoAn8" runat="server" Text="Label"></asp:Label>
                     đồ án
+                     <a href="frmDanhSachDoAn8.aspx" class="pull-right"><i class="fa fa-search"></i>Danh sách</a>
                 </div>
                 <div class="alert alert-warning alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     Điểm đồ án từ 8.1 đến 9.0 :<asp:Label ID="lblDoAn9" runat="server" Text="Label"></asp:Label>
                     đồ án
+                     <a href="frmDanhSachDoAn9.aspx" class="pull-right"><i class="fa fa-search"></i>Danh sách</a>
                 </div>
                 <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     Điểm đồ án từ 9.1 đến 10 :<asp:Label ID="lblDoAn10" runat="server" Text="Label"></asp:Label>
                     đồ án
+                     <a href="frmDanhSachDoAn10.aspx" class="pull-right"><i class="fa fa-search"></i>Danh sách</a>
                 </div>
             </div>
         </div>

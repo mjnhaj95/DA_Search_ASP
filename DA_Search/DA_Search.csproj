@@ -98,8 +98,11 @@
     <Content Include="Form\BaiTestB3.aspx" />
     <Content Include="Form\frmChuyenNganhChiTiet.aspx" />
     <Content Include="Form\frmChuyenNganh_view.aspx" />
+    <Content Include="Form\frmDanhSachDoAn7.aspx" />
     <Content Include="Form\frmGiangVienAdd.aspx" />
     <Content Include="Form\frmGiangVienChiTiet.aspx" />
+    <Content Include="Form\frmGiangVienDelete.aspx" />
+    <Content Include="Form\frmGiangVienEdit.aspx" />
     <Content Include="Form\frmGiangVienView.aspx" />
     <Content Include="Form\frmHoSoDoAn.aspx" />
     <Content Include="Form\frmHoSoSinhVien.aspx" />
@@ -305,6 +308,13 @@
     <Compile Include="Form\frmChuyenNganh_view.aspx.designer.cs">
       <DependentUpon>frmChuyenNganh_view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\frmDanhSachDoAn7.aspx.cs">
+      <DependentUpon>frmDanhSachDoAn7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmDanhSachDoAn7.aspx.designer.cs">
+      <DependentUpon>frmDanhSachDoAn7.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\frmGiangVienAdd.aspx.cs">
       <DependentUpon>frmGiangVienAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -318,6 +328,20 @@
     </Compile>
     <Compile Include="Form\frmGiangVienChiTiet.aspx.designer.cs">
       <DependentUpon>frmGiangVienChiTiet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmGiangVienDelete.aspx.cs">
+      <DependentUpon>frmGiangVienDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmGiangVienDelete.aspx.designer.cs">
+      <DependentUpon>frmGiangVienDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmGiangVienEdit.aspx.cs">
+      <DependentUpon>frmGiangVienEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmGiangVienEdit.aspx.designer.cs">
+      <DependentUpon>frmGiangVienEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\frmGiangVienView.aspx.cs">
       <DependentUpon>frmGiangVienView.aspx</DependentUpon>

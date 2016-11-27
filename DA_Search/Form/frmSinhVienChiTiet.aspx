@@ -20,7 +20,7 @@
 
                 <div><b>Giới tính</b></div>
                 <asp:RadioButton ID="rdoNam" runat="server" GroupName="sex" Text="Nam" /><asp:RadioButton ID="rdoNu" runat="server" GroupName="sex" Text="Nữ" />
-                <asp:TextBox ID="txtgioiTinh" runat="server" Height="27px" Width="512px"></asp:TextBox>
+               
 
                 <div><b>Khóa</b></div>
                 <asp:TextBox ID="txtKhoa" runat="server" Height="27px" Width="512px"></asp:TextBox>

@@ -10,34 +10,34 @@
 namespace DA_Search.Form {
     
     
-    public partial class frmSinhVienChiTiet {
+    public partial class frmGiangVienEdit {
         
         /// <summary>
-        /// txtMasv control.
+        /// txtMagv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMasv;
+        protected global::System.Web.UI.WebControls.TextBox txtMagv;
         
         /// <summary>
-        /// txtTensv control.
+        /// txtTengv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTensv;
+        protected global::System.Web.UI.WebControls.TextBox txtTengv;
         
         /// <summary>
-        /// txtNgaySinh control.
+        /// txtNamSinh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNgaySinh;
+        protected global::System.Web.UI.WebControls.TextBox txtNamSinh;
         
         /// <summary>
         /// rdoNam control.
@@ -58,22 +58,13 @@ namespace DA_Search.Form {
         protected global::System.Web.UI.WebControls.RadioButton rdoNu;
         
         /// <summary>
-        /// txtKhoa control.
+        /// txtHocVi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKhoa;
-        
-        /// <summary>
-        /// txtChuyenNganh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtChuyenNganh;
+        protected global::System.Web.UI.WebControls.TextBox txtHocVi;
         
         /// <summary>
         /// txtEmail control.
@@ -101,5 +92,32 @@ namespace DA_Search.Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiaChi;
+        
+        /// <summary>
+        /// btlLuu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btlLuu;
+        
+        /// <summary>
+        /// btnHuy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHuy;
+        
+        /// <summary>
+        /// lbl_tb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_tb;
     }
 }

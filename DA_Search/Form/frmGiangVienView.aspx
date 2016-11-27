@@ -8,10 +8,11 @@
             <div class="panel-heading">
                 <span class="tieude_thead">DANH SÁCH GIẢNG VIÊN TRONG CSDL</span>
                 <br />
-                <div class="btn btn-success"><a href="frmGiangVienAdd.aspx">Thêm mới</a></div>
+               
                 <br />
                 <br />
                 <asp:TextBox ID="TextBox1" runat="server" Height="28px" Width="265px"></asp:TextBox>&nbsp; <asp:Button ID="Button1" runat="server" Text="Tìm kiếm" CssClass="btn-info active" Height="34px" OnClick="Button1_Click" Width="105px" />
+                 <div class="btn btn-success"><a href="frmGiangVienAdd.aspx">Thêm mới</a></div>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover" id="dataTables-example">

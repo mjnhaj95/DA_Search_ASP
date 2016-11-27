@@ -35,9 +35,9 @@ namespace DA_Search.Form
         protected void btnThem_Click(object sender, EventArgs e)
         {
             clscon.connect_Data();
-            string st_gv = txtMagv.Text.Trim();
+            string st_magv = txtMagv.Text.Trim();
             string st_tengv = txtTengv.Text.Trim();
-            string st_ngaySinh = ddlNgay.Text + ddlThang.Text + ddlNam.Text;
+            string st_ngaySinh = ddlNgay.Text + "-" + ddlThang.Text + "-" + ddlNam.Text;
             string st_gt;
             if (rdNam.Checked == true)
             {
@@ -52,7 +52,7 @@ namespace DA_Search.Form
             string st_dienthoai = txtDienThoai.Text;
             string st_diachi = txtDiaChi.Text;
 
-            string st_sql = "";
+            string st_sql = "INSERT INTO tbl_giangvien VALUES('" + st_magv + "', N'" + st_tengv + "', '" + st_ngaySinh + "', '" + st_gt + "', N'" + st_hocvi + "', '" + st_email + "', '" + st_dienthoai + "', N'" + st_diachi + "')";
             SqlCommand sqlcm = new SqlCommand(st_sql, clscon.con);
             int check = sqlcm.ExecuteNonQuery();
             if (check != 0)
