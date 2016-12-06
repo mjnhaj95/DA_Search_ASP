@@ -9,6 +9,7 @@
             <div class="panel-heading">
                 <span class="tieude_thead">Danh sách sinh viên có điểm đồ án nhỏ hơn 7</span>
             </div>
+            <asp:Label ID="lblBanghi" runat="server" Text="Label"></asp:Label>
             <div class="panel-body">
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
@@ -22,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <asp:Literal ID="ltr_da7" runat="server" Mode="Transform"></asp:Literal>
+                        <asp:Literal ID="ltr_da" runat="server" Mode="Transform"></asp:Literal>
                         <%--  Sử dụng control để hiện mã chuyển đổi HTML--%>
                     </tbody>
                 </table>

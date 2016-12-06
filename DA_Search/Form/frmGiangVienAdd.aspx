@@ -12,6 +12,7 @@
         <div class="panel panel-default">
             <div class="panel-heading success">
                 <span class="tieude_thead">Thêm mới giảng viên</span>
+                 <asp:Label ID="lbl_tb" runat="server" Text="" CssClass="alert-danger"></asp:Label>
             </div>
             <div class="panel-body">
                 <table>
@@ -100,12 +101,10 @@
                         <td class="auto-style1">
                             <asp:Button ID="btnThem" runat="server" Text="Cập nhật" OnClick="btnThem_Click" />
                             <asp:Button ID="btnHuy" runat="server" Text="Hủy bỏ" />
-                            <asp:Label ID="lbl_tb" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                 </table>
             </div>
-            
 
             <!-- /.panel-body -->
         </div>

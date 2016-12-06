@@ -1,6 +1,7 @@
 ﻿using DA_Search.AllClass;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -20,9 +21,14 @@ namespace DA_Search.Form
                 try
                 {
                     clscon.connect_Data();
-                    string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn ORDER BY Masv";
+                    //string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn ORDER BY Masv";
 
-                    SqlCommand sqlcm_sinhvien = new SqlCommand(st_sql_sinhvien, clscon.con);
+                    //SqlCommand sqlcm_sinhvien = new SqlCommand(st_sql_sinhvien, clscon.con);
+
+                    SqlCommand sqlcm_sinhvien = new SqlCommand();
+                    sqlcm_sinhvien.CommandText = "View_SV";
+                    sqlcm_sinhvien.CommandType = CommandType.StoredProcedure;
+                    sqlcm_sinhvien.Connection = clscon.con;
 
                     SqlDataReader re_gv = sqlcm_sinhvien.ExecuteReader();  //Trả về đối tượng SqlDataReader -
                                                                            // thường dùng cho việc đọc kết quả trả về của câu lệnh
@@ -38,7 +44,7 @@ namespace DA_Search.Form
                         st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(3) + "</td>";
                         st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(4) + "</td>";
                         st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienChiTiet.aspx?id=" + re_gv.GetValue(0).ToString() + "'>Xem chi tiết</a></td>";
-                        st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
+                        st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienEdit.aspx?id=" + re_gv.GetValue(0).ToString() + "''><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
                         st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td></tr>";
                     }
                     re_gv.Close();
@@ -59,11 +65,23 @@ namespace DA_Search.Form
         {
             try
             {
-                string search = txtTimKiem.Text.Trim();
+                //string search = txtTimKiem.Text.Trim();
                 clscon.connect_Data();
-                string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn where Masv like N'%" + search + "%' or Tensv like N'%" + search + "%' ORDER BY Masv";
+                //string st_sql_sinhvien = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  tbl_chuyennganh.Tencn AS 'Chuyên ngành' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn where Masv like N'%" + search + "%' or Tensv like N'%" + search + "%' ORDER BY Masv";
 
-                SqlCommand sqlcm_sinhvien = new SqlCommand(st_sql_sinhvien, clscon.con);
+                //SqlCommand sqlcm_sinhvien = new SqlCommand(st_sql_sinhvien, clscon.con);
+
+                SqlCommand sqlcm_sinhvien = new SqlCommand();
+                sqlcm_sinhvien.CommandText = "Search_SV";         //Tên của Strored
+                sqlcm_sinhvien.CommandType = CommandType.StoredProcedure;
+                sqlcm_sinhvien.Connection = clscon.con;
+
+                // Truyên tham số vào strored
+
+                SqlParameter pa_ma = new SqlParameter();
+                pa_ma.ParameterName = "@search";                    // Tên tham số của Strored
+                pa_ma.Value = txtTimKiem.Text.Trim();           // Giá trị cho tham số
+                sqlcm_sinhvien.Parameters.Add(pa_ma);           // Thêm tham số cho đối tượng SqlCommand
 
                 SqlDataReader re_gv = sqlcm_sinhvien.ExecuteReader();  //Trả về đối tượng SqlDataReader -
                                                                        // thường dùng cho việc đọc kết quả trả về của câu lệnh
@@ -79,8 +97,8 @@ namespace DA_Search.Form
                     st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(3) + "</td>";
                     st_kq_gv = st_kq_gv + "<td>" + re_gv.GetValue(4) + "</td>";
                     st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienChiTiet.aspx?id=" + re_gv.GetValue(0).ToString() + "'>Xem chi tiết</a></td>";
-                    st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
-                    st_kq_gv = st_kq_gv + "<td><a href='#'><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td></tr>";
+                    st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienEdit.aspx?id=" + re_gv.GetValue(0).ToString() + "''><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-primary'/><i class='fa fa-pencil'></i></a></td>";
+                    st_kq_gv = st_kq_gv + "<td><a href='frmSinhVienEdit.aspx?id=" + re_gv.GetValue(0).ToString() + "''><asp:Button ID='Button1' runat='server' Text='Button' class='btn btn-sm btn-danger'/><i class='fa fa-trash'></i></a></td></tr>";
                 }
                 re_gv.Close();
                 ltr_sv.Text = st_kq_gv;

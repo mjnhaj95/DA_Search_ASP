@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace DA_Search.Form
 {
-    public partial class frmSinhVienAdd : System.Web.UI.Page
+    public partial class SinhVienEdit : System.Web.UI.Page
     {
         private clsconnect clscon = new clsconnect();
 
@@ -18,36 +18,66 @@ namespace DA_Search.Form
         {
             if (!IsPostBack)
             {
-                for (int i = 1; i <= 31; i++)
+                try
                 {
-                    ddlNgay.Items.Add(i.ToString());
+                    clscon.connect_Data();
+                    string st_ma = Request.QueryString.Get("id").ToString();
+
+                    string st_sql = "SELECT	Masv AS 'Mã sinh viên', Tensv AS 'Tên sinh viên',Namsinh AS 'Ngày sinh',Case WHEN Gioitinh = 1 THEN N'Nữ' ELSE N'Nam' END AS 'Giới tính', Khoa AS 'Khóa',  CONVERT (varchar(5), Macn) + '-' + Tencn AS 'Tên chuyên ngành', Email AS 'Email', Dienthoai AS 'Điện thoại',Diachi AS 'Địa chỉ' FROM tbl_sinhvien INNER JOIN tbl_chuyennganh ON tbl_sinhvien.Chuyennganh = tbl_chuyennganh.Macn WHERE Masv='" + st_ma + "' ORDER BY Masv ";
+
+                    SqlCommand sqlcm = new SqlCommand();
+                    sqlcm.CommandText = st_sql;
+                    sqlcm.Connection = clscon.con;
+
+                    SqlDataReader sqlda = sqlcm.ExecuteReader();
+
+                    sqlda.Read();
+                    txtMasv.Text = sqlda.GetValue(0).ToString();
+                    txtTensv.Text = sqlda.GetValue(1).ToString();
+                    txtNgaySinh.Text = sqlda.GetValue(2).ToString();
+                    //txtgioiTinh.Text = sqlda.GetValue(3).ToString();
+                    if (sqlda.GetValue(3).ToString() == "Nam")
+                    {
+                        rdNam.Checked = true;
+                    }
+                    else
+                    {
+                        rdNu.Checked = true;
+                    }
+                    ddlKhoa.Text = sqlda.GetValue(4).ToString();
+                    ddlChuyenNganh.Text = sqlda.GetValue(5).ToString();
+                    txtEmail.Text = sqlda.GetValue(6).ToString();
+                    txtDienThoai.Text = sqlda.GetValue(7).ToString();
+                    txtDiaChi.Text = sqlda.GetValue(8).ToString();
+
+                    sqlda.Close();
                 }
-                for (int i = 1; i <= 12; i++)
+                catch (Exception ex)
                 {
-                    ddlThang.Items.Add(i.ToString());
+                    Response.Write(ex);
                 }
-                for (int i = 1970; i <= 2016; i++)
+                finally
                 {
-                    ddlNam.Items.Add(i.ToString());
+                    clscon.close_Data();
                 }
             }
         }
 
-        protected void btnThem_Click(object sender, EventArgs e)
+        protected void btnSua_Click(object sender, EventArgs e)
         {
             try
             {
                 clscon.connect_Data();
 
                 SqlCommand sqlcm_sv = new SqlCommand();
-                sqlcm_sv.CommandText = "Insert_SV";
+                sqlcm_sv.CommandText = "Update_SV";
                 sqlcm_sv.CommandType = CommandType.StoredProcedure;
 
                 // truyền tham số vào store
 
                 sqlcm_sv.Parameters.Add("@Masv", SqlDbType.Char).Value = txtMasv.Text.Trim();
                 sqlcm_sv.Parameters.Add("@Tensv", SqlDbType.NVarChar).Value = txtTensv.Text.Trim();
-                sqlcm_sv.Parameters.Add("@NamSinh", SqlDbType.Date).Value = ddlNgay.Text + "-" + ddlThang.Text + "-" + ddlNam.Text;
+                sqlcm_sv.Parameters.Add("@NamSinh", SqlDbType.Date).Value = txtNgaySinh.Text.Trim();
                 if (rdNam.Checked == true)
                 {
                     sqlcm_sv.Parameters.Add("@GioiTinh", SqlDbType.Int).Value = "1";
@@ -74,7 +104,7 @@ namespace DA_Search.Form
                 }
                 else
                 {
-                    lbl_tb.Text = "Lỗi: Thêm mới dữ liệu không thành công!";
+                    lbl_tb.Text = "Lỗi: Sửa dữ liệu không thành công!";
                     lbl_tb.Visible = true;
                 }
             }

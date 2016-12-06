@@ -15,35 +15,75 @@ namespace DA_Search.Form
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                clscon.connect_Data();
-                string st_sql_ds7 = "SELECT  tbl_doan.Masv AS 'Mã sinh viên', tbl_sinhvien.Tensv AS 'Tên sinh viên', Tenda AS 'Tên đồ án', tbl_giangvien.Magv + '-' + tbl_giangvien.Tengv AS 'GVHD', Diem AS 'Điểm'";
-                st_sql_ds7 = st_sql_ds7 + " FROM tbl_doan INNER JOIN tbl_sinhvien ON tbl_doan.Masv = tbl_sinhvien.Masv INNER JOIN tbl_giangvien ON tbl_doan.GVHD = tbl_giangvien.Magv INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc WHERE tbl_doan.Diem <= 7 ORDER BY tbl_doan.Masv";
-                SqlCommand sqlcm_ds7 = new SqlCommand(st_sql_ds7, clscon.con);
-                SqlDataReader re_da7 = sqlcm_ds7.ExecuteReader(); //Trả về đối tượng SqlDataReader -
-                                                                  // thường dùng cho việc đọc kết quả trả về của câu lệnh
-                                                                  //SQL là 1 tập hợp gồm nhiều hàng, nhiều cột
-                string st_kq_da7 = "";
-                byte i = 0;
-                while (re_da7.Read())
+            if (!IsPostBack)
+                try
                 {
-                    i++;
-                    st_kq_da7 = st_kq_da7 + "<tr> <td>" + i.ToString() + "</td> <td>" + re_da7.GetValue(0).ToString() + "</td> <td>" + re_da7.GetValue(1).ToString() + "</td>";
-                    st_kq_da7 = st_kq_da7 + "<td>" + re_da7.GetValue(3).ToString() + "</td> <td>" + re_da7.GetValue(2).ToString() + "</td> <td>" + re_da7.GetValue(4).ToString() + "</td></tr>";
-                }
-                re_da7.Close();
+                    Int32 id = Int32.Parse(Request.QueryString.Get("id"));
+                    clscon.connect_Data();
+                    string st_sql_ds = "";
+                    string st_sqlcount = "";
+                    switch (id)
+                    {
+                        case 1:
+                            {
+                                st_sql_ds = "SELECT  tbl_doan.Masv AS 'Mã sinh viên', tbl_sinhvien.Tensv AS 'Tên sinh viên', Tenda AS 'Tên đồ án', tbl_giangvien.Magv + '-' + tbl_giangvien.Tengv AS 'GVHD', Diem AS 'Điểm'";
+                                st_sql_ds = st_sql_ds + " FROM tbl_doan INNER JOIN tbl_sinhvien ON tbl_doan.Masv = tbl_sinhvien.Masv INNER JOIN tbl_giangvien ON tbl_doan.GVHD = tbl_giangvien.Magv INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc WHERE tbl_doan.Diem <= 7 ORDER BY tbl_doan.Masv";
 
-                ltr_da7.Text = st_kq_da7;
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex);
-            }
-            finally
-            {
-                clscon.close_Data();
-            }
+                                st_sqlcount = "SELECT  COUNT(tbl_doan.Masv) ";
+                                st_sqlcount = st_sqlcount + " FROM tbl_doan WHERE tbl_doan.Diem <= 7";
+                                break;
+                            }
+                        case 2:
+                            {
+                                st_sql_ds = "SELECT  tbl_doan.Masv AS 'Mã sinh viên', tbl_sinhvien.Tensv AS 'Tên sinh viên', Tenda AS 'Tên đồ án', tbl_giangvien.Magv + '-' + tbl_giangvien.Tengv AS 'GVHD', Diem AS 'Điểm'";
+                                st_sql_ds = st_sql_ds + " FROM tbl_doan INNER JOIN tbl_sinhvien ON tbl_doan.Masv = tbl_sinhvien.Masv INNER JOIN tbl_giangvien ON tbl_doan.GVHD = tbl_giangvien.Magv INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc WHERE tbl_doan.Diem BETWEEN 7.1 AND 8.0 ORDER BY tbl_doan.Masv";
+                                st_sqlcount = "SELECT  COUNT(tbl_doan.Masv) ";
+                                st_sqlcount = st_sqlcount + " FROM tbl_doan WHERE tbl_doan.Diem BETWEEN 7.1 AND 8.0";
+                                break;
+                            }
+                        case 3:
+                            {
+                                st_sql_ds = "SELECT  tbl_doan.Masv AS 'Mã sinh viên', tbl_sinhvien.Tensv AS 'Tên sinh viên', Tenda AS 'Tên đồ án', tbl_giangvien.Magv + '-' + tbl_giangvien.Tengv AS 'GVHD', Diem AS 'Điểm'";
+                                st_sql_ds = st_sql_ds + " FROM tbl_doan INNER JOIN tbl_sinhvien ON tbl_doan.Masv = tbl_sinhvien.Masv INNER JOIN tbl_giangvien ON tbl_doan.GVHD = tbl_giangvien.Magv INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc WHERE tbl_doan.Diem BETWEEN 8.1 AND 9.0 ORDER BY tbl_doan.Masv";
+                                st_sqlcount = "SELECT  COUNT(tbl_doan.Masv) ";
+                                st_sqlcount = st_sqlcount + " FROM tbl_doan WHERE tbl_doan.Diem BETWEEN 8.1 AND 9.0";
+                                break;
+                            }
+                        case 4:
+                            {
+                                st_sql_ds = "SELECT  tbl_doan.Masv AS 'Mã sinh viên', tbl_sinhvien.Tensv AS 'Tên sinh viên', Tenda AS 'Tên đồ án', tbl_giangvien.Magv + '-' + tbl_giangvien.Tengv AS 'GVHD', Diem AS 'Điểm'";
+                                st_sql_ds = st_sql_ds + " FROM tbl_doan INNER JOIN tbl_sinhvien ON tbl_doan.Masv = tbl_sinhvien.Masv INNER JOIN tbl_giangvien ON tbl_doan.GVHD = tbl_giangvien.Magv INNER JOIN tbl_linhvuc ON tbl_linhvuc.Malv = tbl_doan.Linhvuc WHERE tbl_doan.Diem BETWEEN 9.1 AND 10 ORDER BY tbl_doan.Masv";
+                                st_sqlcount = "SELECT  COUNT(tbl_doan.Masv) ";
+                                st_sqlcount = st_sqlcount + " FROM tbl_doan WHERE tbl_doan.Diem BETWEEN 9.1 AND 10";
+                                break;
+                            }
+                    }
+                    SqlCommand sqlcm_ds = new SqlCommand(st_sql_ds, clscon.con);
+                    SqlDataReader re_da = sqlcm_ds.ExecuteReader();
+                    string st_kq_da = "";
+                    byte i = 0;
+                    while (re_da.Read())
+                    {
+                        i++;
+                        st_kq_da = st_kq_da + "<tr> <td>" + i.ToString() + "</td> <td>" + re_da.GetValue(0).ToString() + "</td> <td>" + re_da.GetValue(1).ToString() + "</td>";
+                        st_kq_da = st_kq_da + "<td>" + re_da.GetValue(3).ToString() + "</td> <td>" + re_da.GetValue(2).ToString() + "</td> <td>" + re_da.GetValue(4).ToString() + "</td></tr>";
+                    }
+                    re_da.Close();
+
+                    ltr_da.Text = st_kq_da;
+
+                    SqlCommand sqlcommand = new SqlCommand(st_sqlcount, clscon.con);
+                    Int32 total = (Int32)(sqlcommand.ExecuteScalar());
+                    lblBanghi.Text = total + "";
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex);
+                }
+                finally
+                {
+                    clscon.close_Data();
+                }
         }
     }
 }

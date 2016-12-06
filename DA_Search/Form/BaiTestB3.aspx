@@ -8,7 +8,7 @@
             <div class="panel-heading">
                 <span class="tieude_thead">HỒ SƠ SINH VIÊN TRONG CSDL</span>
                 <br />
-                <div class="btn btn-success"><a href="#">Thêm mới</a></div>
+                <div class="btn btn-success"><a href="frmSinhVienAdd.aspx">Thêm mới</a></div>
                 <br />
                 <br />
                 <asp:TextBox ID="txtTimKiem" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Tìm kiếm" OnClick="Button1_Click" />

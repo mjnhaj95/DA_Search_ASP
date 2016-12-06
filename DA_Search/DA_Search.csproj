@@ -230,12 +230,14 @@
     <Content Include="Form\frmGiangVienView.aspx" />
     <Content Include="Form\frmHoSoDoAn.aspx" />
     <Content Include="Form\frmHoSoSinhVien.aspx" />
+    <Content Include="Form\frmKhoaHocAdd.aspx" />
     <Content Include="Form\frmKhoaHoc_view.aspx" />
     <Content Include="Form\frmLinhVucChiTiet.aspx" />
     <Content Include="Form\frmLinhVuc_view.aspx" />
     <Content Include="Form\frmSinhVienAdd.aspx" />
     <Content Include="Form\frmSinhVienChiTiet.aspx" />
     <Content Include="Form\shared\notificationServicejs.js" />
+    <Content Include="Form\frmSinhVienEdit.aspx" />
     <Content Include="Form\Test.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -517,6 +519,13 @@
     <Compile Include="Form\frmHoSoSinhVien.aspx.designer.cs">
       <DependentUpon>frmHoSoSinhVien.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form\frmKhoaHocAdd.aspx.cs">
+      <DependentUpon>frmKhoaHocAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmKhoaHocAdd.aspx.designer.cs">
+      <DependentUpon>frmKhoaHocAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form\frmKhoaHoc_view.aspx.cs">
       <DependentUpon>frmKhoaHoc_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -558,6 +567,13 @@
     </Compile>
     <Compile Include="Form\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmSinhVienEdit.aspx.cs">
+      <DependentUpon>frmSinhVienEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form\frmSinhVienEdit.aspx.designer.cs">
+      <DependentUpon>frmSinhVienEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

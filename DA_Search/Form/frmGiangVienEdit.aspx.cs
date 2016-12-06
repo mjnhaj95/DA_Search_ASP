@@ -86,6 +86,16 @@ namespace DA_Search.Form
             string st_dienthoai = txtDienThoai.Text;
             string st_diachi = txtDiaChi.Text;
 
+            string sql = "SELECT COUNT(Magv) FROM tbl_giangvien WHERE Magv = '" + st_magv + "'";
+            SqlCommand sqlcmsql = new SqlCommand(sql, clscon.con);
+
+            //int kiemtra = (int)sqlcmsql.ExecuteScalar();
+            //if (kiemtra == 1)
+            //{
+            //    lbl_tb.Text = "Lỗi: Mã giảng viên đã có trong CSDL";
+            //}
+            //else
+            //{
             string st_sql = "UPDATE tbl_giangvien SET Magv ='" + st_magv + "', Tengv = N'" + st_tengv + "',Namsinh= '" + st_ngaySinh + "', Gioitinh ='" + st_gt + "', Hocvi = N'" + st_hocvi + "', Email ='" + st_email + "',Dienthoai= '" + st_dienthoai + "',Diachi= N'" + st_diachi + "' WHERE Magv = '" + Magv + "'";
             SqlCommand sqlcm = new SqlCommand(st_sql, clscon.con);
             int check = sqlcm.ExecuteNonQuery();
@@ -101,6 +111,7 @@ namespace DA_Search.Form
                 lbl_tb.Text = "Lỗi: Sửa dữ liệu không thành công!";
                 lbl_tb.Visible = true;
             }
+            //}
         }
     }
 }

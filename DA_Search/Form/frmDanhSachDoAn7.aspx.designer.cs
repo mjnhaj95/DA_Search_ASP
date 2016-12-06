@@ -13,12 +13,21 @@ namespace DA_Search.Form {
     public partial class frmDanhSachDoAn7 {
         
         /// <summary>
-        /// ltr_da7 control.
+        /// lblBanghi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltr_da7;
+        protected global::System.Web.UI.WebControls.Label lblBanghi;
+        
+        /// <summary>
+        /// ltr_da control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltr_da;
     }
 }

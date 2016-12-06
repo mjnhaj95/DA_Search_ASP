@@ -52,19 +52,29 @@ namespace DA_Search.Form
             string st_dienthoai = txtDienThoai.Text;
             string st_diachi = txtDiaChi.Text;
 
-            string st_sql = "INSERT INTO tbl_giangvien VALUES('" + st_magv + "', N'" + st_tengv + "', '" + st_ngaySinh + "', '" + st_gt + "', N'" + st_hocvi + "', '" + st_email + "', '" + st_dienthoai + "', N'" + st_diachi + "')";
-            SqlCommand sqlcm = new SqlCommand(st_sql, clscon.con);
-            int check = sqlcm.ExecuteNonQuery();
-            if (check != 0)
+            string sql = "SELECT COUNT(Magv) FROM tbl_giangvien WHERE Magv = '" + st_magv + "'";
+            SqlCommand sqlcmsql = new SqlCommand(sql, clscon.con);
+
+            int kiemtra = (int)sqlcmsql.ExecuteScalar();
+            if (kiemtra == 1)
             {
-                lbl_tb.Text = "AddAlert()";
-                lbl_tb.Visible = true;
-                Response.Redirect("frmGiangVienView.aspx");
+                lbl_tb.Text = "Lỗi: Mã giảng viên đã có trong CSDL";
             }
             else
             {
-                lbl_tb.Text = "Lỗi: Thêm mới dữ liệu không thành công!";
-                lbl_tb.Visible = true;
+                string st_sql = "INSERT INTO tbl_giangvien VALUES('" + st_magv + "', N'" + st_tengv + "', '" + st_ngaySinh + "', '" + st_gt + "', N'" + st_hocvi + "', '" + st_email + "', '" + st_dienthoai + "', N'" + st_diachi + "')";
+                SqlCommand sqlcm = new SqlCommand(st_sql, clscon.con);
+                int check = sqlcm.ExecuteNonQuery();
+                if (check != 0)
+                {
+                    lbl_tb.Visible = true;
+                    Response.Redirect("frmGiangVienView.aspx");
+                }
+                else
+                {
+                    lbl_tb.Text = "Lỗi: Thêm mới dữ liệu không thành công!";
+                    lbl_tb.Visible = true;
+                }
             }
         }
     }

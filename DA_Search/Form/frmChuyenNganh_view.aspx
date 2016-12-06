@@ -10,7 +10,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <div class="row">
-        <asp:GridView ID="grvDanhMucChuyenNganh" runat="server" Width="1074px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+        <asp:GridView ID="grvDanhMucChuyenNganh" runat="server" Width="1074px" BackColor="White" CssClass="table table-hover table-bordered " BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
             <Columns>
                 <asp:TemplateField HeaderText="STT">
                     <ItemTemplate>

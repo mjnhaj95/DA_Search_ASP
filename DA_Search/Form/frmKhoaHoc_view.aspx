@@ -7,11 +7,14 @@
         <div class="col-lg-12">
             <h2 class="page-header">Danh mục khóa học</h2>
         </div>
+        <div class="col-lg-12">
+            <asp:Button ID="Button1" runat="server" Text="Thêm mới" CssClass="btn btn-success pull-right" PostBackUrl="~/Form/frmKhoaHocAdd.aspx?type=add" />
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
     <div class="row">
-        <asp:GridView ID="grvDanhMucKhoaHoc" runat="server" AutoGenerateColumns="False" DataKeyNames="Mã Khoa" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Left" Width="1074px">
+        <asp:GridView ID="grvDanhMucKhoaHoc" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Left" Width="1074px" CssClass="table table-hover table-bordered ">
             <Columns>
 
                 <asp:TemplateField HeaderText="STT">
@@ -26,6 +29,8 @@
                 <asp:BoundField DataField="Tên Khoa" HeaderText="Tên Khoa" SortExpression="Tên Khoa" />
                 <asp:BoundField DataField="Thời gian" HeaderText="Thời gian" SortExpression="Thời gian" />
                 <asp:BoundField DataField="Ghi chú" HeaderText="Ghi chú" SortExpression="Ghi chú" />
+                <asp:HyperLinkField HeaderText="Sửa thông tin" Text="Sửa" />
+                <asp:HyperLinkField HeaderText="Xóa thông tin" Text="Xóa" />
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" HorizontalAlign="Center" Font-Bold="True" ForeColor="White" Height="50px" VerticalAlign="Middle" Width="200px" />

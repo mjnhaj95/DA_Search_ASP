@@ -15,6 +15,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <span class="tieude_thead">Sửa thông tin giảng viên</span>
+                <asp:Label ID="lbl_tb" runat="server" Text="" CssClass="alert-danger"></asp:Label>
             </div>
             <div class="panel-body">
                 <div><b>Mã giảng viên</b></div>
@@ -49,7 +50,6 @@
                 &nbsp;&nbsp;
                 <asp:Button ID="btnHuy" runat="server" Text="Hủy" CssClass="btn-danger" Height="40px" OnClick="btnHuy_Click" Width="86px" />
                 <br />
-                <asp:Label ID="lbl_tb" runat="server" Text="Label"></asp:Label>
             </div>
             <!-- /.panel-body -->
         </div>
