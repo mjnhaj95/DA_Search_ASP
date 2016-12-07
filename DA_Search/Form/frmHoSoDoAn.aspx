@@ -9,11 +9,22 @@
         </div>
         <div class="col-lg-12">
             <div class="col-lg-3">
-                <asp:TextBox ID="txtInput" runat="server" Height="30px" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtTimKiem" runat="server" Height="30px" Width="200px"></asp:TextBox>
             </div>
             <div class="col-lg-3">
-               <button class="btn btn-success" onclick="Alert()">Tìm kiếm</button>
-               <%-- <asp:Button ID="btnTimKiem" runat="server" Text="Tìm kiếm" CssClass="btn-info active" Height="30px" Width="121px" OnClick="btnTimKiem_Click" />--%>
+                <asp:Button ID="btnTimKiem" runat="server" Text="Tìm kiếm" CssClass="btn-info active" Height="30px" Width="121px" OnClick="btnTimKiem_Click" />
+            </div>
+            <div class="col-lg-3">
+                <asp:DropDownList ID="ddlGiaoVien" runat="server" DataSourceID="SqlDataSource1" DataTextField="Tên chuyên ngành" DataValueField="Magv" AutoPostBack="True" OnSelectedIndexChanged="ddlGiaovien_SelectedIndexChanged"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connec_DATN %>" SelectCommand="Select_GVHD" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            </div>
+            <div class="col-lg-3">
+                <asp:DropDownList ID="ddlDiem" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDiem_SelectedIndexChanged">
+                    <asp:ListItem Selected="True" Value="7">Điểm &lt; = 7</asp:ListItem>
+                    <asp:ListItem Value="8">Điểm từ 7.1 đến 8</asp:ListItem>
+                    <asp:ListItem Value="9">Điểm từ 8.1 đến 9</asp:ListItem>
+                    <asp:ListItem Value="10">Điểm từ 9.1 đến 10</asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
         <!-- /.col-lg-12 -->
@@ -37,13 +48,17 @@
             <tbody>
                 <asp:Literal ID="ltr_da" runat="server" Mode="Transform"></asp:Literal>
 
-                <%--  Sử dụng control để hiện mã chuyển đổi HTML--%>
-            </tbody>
-        </table>
-        <script type="text/javascript">
+                <%-- <script type="text/javascript">
             function Alert() {
                 alert("Chưa làm");
             }
-        </script>
+        </script>--%>
+            </tbody>
+        </table>
+        <%-- <script type="text/javascript">
+            function Alert() {
+                alert("Chưa làm");
+            }
+        </script>--%>
     </div>
 </asp:Content>
